@@ -1,0 +1,62 @@
+/* Shared TWIST design system */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Italiana&family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap');
+
+:root {
+  --twist-purple: #8B5CF6;
+  --twist-violet: #7C3AED;
+  --twist-pink: #EC4899;
+  --twist-fuchsia: #D946EF;
+  --twist-yellow: #FDE047;
+  --twist-amber: #FBBF24;
+  --twist-cyan: #67E8F9;
+  --twist-blue: #60A5FA;
+  --twist-ink: #08030F;
+  --twist-night: #0D0520;
+  --twist-dusk: #140828;
+}
+
+.tw-artboard {
+  width: 1440px;
+  overflow: hidden;
+  font-family: 'Manrope', system-ui, sans-serif;
+  color: #fff;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tw-serif { font-family: 'Playfair Display', serif; }
+.tw-mono { font-family: 'JetBrains Mono', monospace; }
+.tw-italiana { font-family: 'Italiana', serif; }
+.tw-bodoni { font-family: 'Bodoni Moda', serif; }
+
+.tw-gradient-text {
+  background: linear-gradient(92deg, #FDE047 0%, #EC4899 40%, #8B5CF6 70%, #60A5FA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Image placeholder */
+.tw-ph {
+  position: relative;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(255,255,255,0.035) 0 8px,
+      rgba(255,255,255,0.08) 8px 16px);
+  overflow: hidden;
+  isolation: isolate;
+}
+.tw-ph::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 12px; bottom: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+}
+
+/* Scroll lock inside artboards */
+.tw-artboard * { box-sizing: border-box; }

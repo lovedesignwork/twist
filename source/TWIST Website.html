@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TWIST Phuket — Website Design Explorations</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  html, body { margin: 0; padding: 0; background: #0a0a0a; font-family: 'Manrope', system-ui, sans-serif; color: #fff; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="design-01-aurora.jsx"></script>
+<script type="text/babel" src="design-02-neon-skyline.jsx"></script>
+<script type="text/babel" src="design-03-liquid-glass.jsx"></script>
+<script type="text/babel" src="design-04-midnight-deco.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+  function App() {
+    return (
+      <DesignCanvas title="TWIST Phuket — Website Explorations" subtitle="4 directions · dark theme · purple / pink / yellow / light blue gradient">
+        <DCSection id="landing" title="Landing Page — 4 Directions">
+          <DCArtboard id="aurora" label="01 · Aurora — Cinematic editorial" width={1440} height={3400}>
+            <Aurora />
+          </DCArtboard>
+          <DCArtboard id="neon" label="02 · Neon Skyline — Late-night magazine" width={1440} height={3500}>
+            <NeonSkyline />
+          </DCArtboard>
+          <DCArtboard id="glass" label="03 · Liquid Glass — Premium glassmorphism" width={1440} height={3500}>
+            <LiquidGlass />
+          </DCArtboard>
+          <DCArtboard id="deco" label="04 · Midnight Deco — Art-deco luxury" width={1440} height={3500}>
+            <MidnightDeco />
+          </DCArtboard>
+        </DCSection>
+      </DesignCanvas>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

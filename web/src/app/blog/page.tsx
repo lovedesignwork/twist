@@ -26,7 +26,7 @@ export default async function BlogPage() {
       {/* HERO */}
       <section className="relative z-[2] pt-32 lg:pt-44 pb-12 px-6 lg:px-16 text-center">
         <div className="tw-mono text-[11px] tracking-[0.45em] opacity-70 mb-5">
-          ( THE JOURNAL · EST. 2019 )
+          ( THE JOURNAL )
         </div>
         <h1 className="tw-serif text-[60px] sm:text-[96px] lg:text-[148px] leading-[0.92] font-normal tracking-[-0.02em]">
           Dispatches from <span className="italic tw-gradient-text">above.</span>

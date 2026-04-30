@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 
@@ -36,7 +37,13 @@ export function AuroraFooter() {
     <footer className="relative z-[2] border-t border-white/[0.08] px-6 lg:px-16 pt-14 pb-10">
       <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 mb-14">
         <div>
-          <div className="tw-italiana text-3xl tracking-[0.3em] mb-4">TWIST</div>
+          <Image
+            src="/TWIST-LOGO-White-PNG.png"
+            alt="TWIST"
+            width={120}
+            height={44}
+            className="h-11 w-auto object-contain mb-4"
+          />
           <p className="text-[13px] leading-relaxed text-white/55 max-w-[340px]">
             19th Floor, Royal Phuket City Hotel. Phuket Old Town&apos;s most iconic
             rooftop bar &amp; restaurant — a fusion of Thai roots, international

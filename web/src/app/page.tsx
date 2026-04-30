@@ -5,12 +5,8 @@ import { AuroraNav } from "@/components/aurora-nav";
 import { AuroraFooter } from "@/components/aurora-footer";
 import { IMG } from "@/lib/images";
 import { FAQS, SITE } from "@/lib/site";
-import { getBlogPosts, getFeaturedEvent } from "@/lib/queries";
 
-export default async function HomePage() {
-  const featured = await getFeaturedEvent();
-  const posts = (await getBlogPosts()).slice(0, 4);
-
+export default function HomePage() {
   return (
     <div className="relative bg-twist-ink min-h-screen overflow-hidden">
       <AuroraBackdrop intensity={0.85} variant="default" />
@@ -21,7 +17,7 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <div className="tw-mono text-[11px] tracking-[0.45em] opacity-70 mb-5">
-              ( 19TH FLOOR · ROYAL PHUKET CITY HOTEL · EST. 2019 )
+              ( 19TH FLOOR · ROYAL PHUKET CITY HOTEL )
             </div>
             <h1 className="tw-serif text-[60px] sm:text-[96px] lg:text-[148px] leading-[0.92] font-normal tracking-[-0.02em]">
               Sunsets,
@@ -55,10 +51,9 @@ export default async function HomePage() {
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 1280px"
-                className="object-cover"
+                className="object-cover object-bottom"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-twist-ink via-twist-ink/30 to-transparent" />
-              <div className="absolute left-6 lg:left-12 bottom-6 lg:bottom-10 right-6">
+              <div className="absolute left-6 lg:left-12 bottom-6 lg:bottom-10 right-6 text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.85),0_1px_4px_rgba(0,0,0,0.9)]">
                 <div className="tw-mono text-[10px] tracking-[0.3em] text-twist-yellow mb-2">
                   ◉ TONIGHT · 18:42 SUNSET · 27.4°C · CLEAR
                 </div>
@@ -152,91 +147,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* FEATURED EVENT ------------------------------------------------ */}
-      {featured && (
-        <section className="relative z-[2] py-16 px-6 lg:px-16">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 border border-white/10 rounded-3xl overflow-hidden">
-              <div className="relative min-h-[420px] lg:min-h-[560px]">
-                {featured.image_url && (
-                  <Image
-                    src={featured.image_url}
-                    alt={featured.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-r from-twist-ink/40 via-transparent to-transparent" />
-              </div>
-              <div
-                className="p-10 lg:p-14"
-                style={{
-                  background: `
-                    radial-gradient(500px 400px at 90% 20%, rgba(253,224,71,0.2), transparent 60%),
-                    radial-gradient(600px 500px at 10% 90%, rgba(139,92,246,0.4), transparent 60%)`,
-                }}
-              >
-                <div className="tw-mono text-[11px] tracking-[0.3em] text-twist-yellow mb-5">
-                  ◉ HEADLINE EVENT
-                </div>
-                <div className="tw-mono text-[10px] tracking-[0.2em] opacity-60 mb-3">
-                  {new Date(featured.date)
-                    .toLocaleDateString("en-GB", {
-                      weekday: "long",
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })
-                    .toUpperCase()}{" "}
-                  · {featured.time_label}
-                </div>
-                <h2 className="tw-serif text-5xl lg:text-6xl leading-[0.92] font-normal">
-                  {featured.title.split(" — ")[0]}
-                  <br />
-                  <span className="italic tw-gradient-text">
-                    {featured.title.split(" — ")[1] ?? "is back."}
-                  </span>
-                </h2>
-                {featured.description && (
-                  <p className="text-base mt-5 text-white/80 max-w-md leading-relaxed">
-                    {featured.description}
-                  </p>
-                )}
-
-                <div className="grid grid-cols-2 gap-4 mt-7">
-                  {[
-                    ["Doors", featured.doors],
-                    ["Ticket", `฿${featured.price_thb.toLocaleString()} pp`],
-                    ["Floor", "19ᵗʰ"],
-                    ["Tag", featured.tag],
-                  ].map(([k, v]) => (
-                    <div
-                      key={k}
-                      className="border-t border-twist-yellow/30 pt-2"
-                    >
-                      <div className="tw-mono text-[10px] tracking-[0.25em] opacity-55 uppercase">
-                        {k}
-                      </div>
-                      <div className="tw-serif text-xl mt-1 font-medium">
-                        {v}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <Link
-                  href="/events"
-                  className="mt-8 tw-btn-pill tw-btn-primary inline-flex"
-                >
-                  Reserve your seat →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* TWO COLUMN: BAR + KITCHEN ------------------------------------- */}
       <section className="relative z-[2] py-24 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6">
@@ -298,66 +208,6 @@ export default async function HomePage() {
                 Kitchen menu →
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* JOURNAL TEASER ------------------------------------------------ */}
-      <section className="relative z-[2] py-16 px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-end justify-between flex-wrap gap-6 mb-10">
-            <div>
-              <div className="tw-mono text-[11px] tracking-[0.3em] text-twist-purple mb-5">
-                ( 03 ) — THE JOURNAL
-              </div>
-              <h2 className="tw-serif text-5xl lg:text-6xl leading-[0.95]">
-                Latest <span className="italic tw-gradient-text">dispatches.</span>
-              </h2>
-            </div>
-            <Link href="/blog" className="tw-btn-pill tw-btn-ghost">
-              All articles →
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {posts.map((p) => (
-              <Link
-                key={p.id}
-                href={"/blog" as const}
-                className="tw-card group block hover:-translate-y-1 transition"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  {p.cover_url && (
-                    <Image
-                      src={p.cover_url}
-                      alt={p.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                      className="object-cover transition duration-700 group-hover:scale-105"
-                    />
-                  )}
-                </div>
-                <div className="p-5">
-                  <div className="flex justify-between mb-3">
-                    <span className="tw-mono text-[10px] tracking-[0.25em] text-twist-yellow">
-                      ◆ {p.category}
-                    </span>
-                    <span className="tw-mono text-[10px] opacity-55">
-                      {new Date(p.published_at).toLocaleDateString("en-GB", {
-                        day: "2-digit",
-                        month: "short",
-                      })}
-                    </span>
-                  </div>
-                  <h3 className="tw-serif text-xl font-medium leading-snug mb-3">
-                    {p.title}
-                  </h3>
-                  <div className="tw-mono text-[10px] tracking-[0.15em] opacity-55">
-                    {p.read_minutes} MIN READ →
-                  </div>
-                </div>
-              </Link>
-            ))}
           </div>
         </div>
       </section>

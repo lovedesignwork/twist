@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -8,7 +9,6 @@ const ITEMS = [
   { label: "Home", href: "/" },
   { label: "Menu", href: "/menu" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Events", href: "/events" },
   { label: "Journal", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;
@@ -37,8 +37,15 @@ export function AuroraNav() {
       }`}
     >
       <div className="flex items-center justify-between px-6 lg:px-16 py-5 lg:py-7">
-        <Link href="/" className="tw-italiana text-2xl tracking-[0.3em] hover:opacity-80 transition">
-          TWIST
+        <Link href="/" className="hover:opacity-80 transition">
+          <Image
+            src="/TWIST-LOGO-White-PNG.png"
+            alt="TWIST"
+            width={96}
+            height={36}
+            className="h-9 w-auto object-contain"
+            priority
+          />
         </Link>
 
         <div className="hidden lg:flex items-center gap-9 text-[13px] tracking-[0.18em] uppercase font-medium">
@@ -63,7 +70,7 @@ export function AuroraNav() {
         <div className="flex items-center gap-3">
           <Link
             href="/reserve"
-            className="hidden sm:inline-flex tw-btn-pill border border-white/25 bg-white/5 backdrop-blur-md text-white hover:bg-white/10"
+            className="hidden sm:inline-flex tw-btn-pill tw-btn-primary shadow-[0_4px_24px_-4px_rgba(139,92,246,0.45)] hover:opacity-95"
           >
             Reserve →
           </Link>

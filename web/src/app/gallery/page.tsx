@@ -8,26 +8,29 @@ import { IMG } from "@/lib/images";
 export const metadata = {
   title: "Gallery — Evenings Collected",
   description:
-    "Seven years of rooftop nights, plated moments, and a skyline that never shows the same face twice.",
+    "Rooftop nights, plated moments, and a skyline that never shows the same face twice. A rolling archive, updated monthly.",
 };
 
 const TILES = [
-  { src: IMG.rooftopBar,    label: "ROOFTOP · SUNSET",   tall: true,  wide: false },
-  { src: IMG.barCounter,    label: "BAR · COUNTER",      tall: false, wide: false },
-  { src: IMG.blackCod,      label: "DISH · BLACK COD",   tall: false, wide: false },
-  { src: IMG.cityNight,     label: "CITY LIGHTS",        tall: true,  wide: false },
-  { src: IMG.candlelitTable,label: "GUEST · CANDLELIT",  tall: false, wide: false },
-  { src: IMG.cocktail2,     label: "COCKTAIL · DETAIL",  tall: false, wide: false },
-  { src: IMG.heroPanorama,  label: "SKYLINE · PANORAMA", tall: false, wide: true  },
-  { src: IMG.jazzNight,     label: "JAZZ SET · STAGE",   tall: false, wide: false },
-  { src: IMG.loungeInterior,label: "INTERIOR · LOUNGE",  tall: false, wide: false },
-  { src: IMG.weddingFeature,label: "EVENT · CEREMONY",   tall: true,  wide: false },
-  { src: IMG.platingDetail, label: "PLATING",            tall: false, wide: false },
-  { src: IMG.bartenderPour, label: "BARTENDER · POUR",   tall: false, wide: false },
-  { src: IMG.heroSkyline,   label: "SUNSET · OLD TOWN",  tall: false, wide: true  },
-  { src: IMG.cocktail5,     label: "DETAIL · GARNISH",   tall: false, wide: false },
-  { src: IMG.diningRoom,    label: "COUPLE · DINNER",    tall: false, wide: false },
-  { src: IMG.fullMoon,      label: "FULL MOON",          tall: true,  wide: false },
+  { src: IMG.rooftopBar,      label: "ROOFTOP · SUNSET",    tall: true,  wide: false },
+  { src: IMG.barCounter,      label: "BAR · COUNTER",       tall: false, wide: false },
+  { src: IMG.blackCod,        label: "DISH · BLACK COD",    tall: false, wide: false },
+  { src: IMG.cityNight,       label: "CITY LIGHTS",         tall: true,  wide: false },
+  { src: IMG.candlelitTable,  label: "GUEST · CANDLELIT",   tall: false, wide: false },
+  { src: IMG.cocktail2,       label: "COCKTAIL · DETAIL",   tall: false, wide: false },
+  { src: IMG.heroPanorama,    label: "SKYLINE · PANORAMA",  tall: false, wide: true  },
+  { src: IMG.jazzNight,       label: "JAZZ SET · STAGE",    tall: false, wide: false },
+  { src: IMG.loungeInterior,  label: "INTERIOR · LOUNGE",   tall: false, wide: false },
+  { src: IMG.weddingFeature,  label: "EVENT · CEREMONY",    tall: true,  wide: false },
+  { src: IMG.platingDetail,   label: "PLATING",             tall: false, wide: false },
+  { src: IMG.bartenderPour,   label: "BARTENDER · POUR",    tall: false, wide: false },
+  { src: IMG.heroSkyline,     label: "SUNSET · OLD TOWN",   tall: false, wide: true  },
+  { src: IMG.cocktail5,       label: "DETAIL · GARNISH",    tall: false, wide: false },
+  { src: IMG.diningRoom,      label: "COUPLE · DINNER",     tall: false, wide: false },
+  { src: IMG.fullMoon,        label: "FULL MOON",           tall: true,  wide: false },
+  { src: IMG.rooftop011,      label: "ROOFTOP · NIGHT",     tall: false, wide: false },
+  { src: IMG.rooftop017,      label: "ROOFTOP · DAY",       tall: false, wide: false },
+  { src: IMG.rooftop042,      label: "ROOFTOP · DETAIL",    tall: false, wide: false },
 ] as const;
 
 const CATEGORIES = ["All", "The Rooftop", "The Bar", "The Kitchen", "Events", "Skyline"];
@@ -41,13 +44,13 @@ export default function GalleryPage() {
       {/* HERO */}
       <section className="relative z-[2] pt-32 lg:pt-44 pb-12 px-6 lg:px-16 text-center">
         <div className="tw-mono text-[11px] tracking-[0.45em] opacity-70 mb-5">
-          ( THE ARCHIVE · 2019 → 2026 )
+          ( THE ARCHIVE )
         </div>
         <h1 className="tw-serif text-[60px] sm:text-[96px] lg:text-[148px] leading-[0.92] font-normal tracking-[-0.02em]">
           Evenings, <span className="italic tw-gradient-text">collected.</span>
         </h1>
         <p className="text-lg max-w-xl mx-auto mt-8 text-white/75 font-light leading-relaxed">
-          Seven years of rooftop nights, plated moments, and a skyline that never
+          Rooftop nights, plated moments, and a skyline that never
           shows the same face twice. A rolling archive, updated monthly.
         </p>
 
@@ -74,24 +77,12 @@ export default function GalleryPage() {
             <div className="relative aspect-[16/8]">
               <Image
                 src={IMG.goldenHour}
-                alt="Featured: golden hour"
+                alt="Featured: golden hour over Phuket Old Town"
                 fill
                 priority
                 sizes="100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-twist-ink via-twist-ink/30 to-transparent" />
-            </div>
-            <div className="absolute left-6 lg:left-12 bottom-6 lg:bottom-10 max-w-2xl">
-              <div className="tw-mono text-[11px] tracking-[0.3em] text-twist-yellow mb-3">
-                ◉ THIS WEEK · FEATURED
-              </div>
-              <h2 className="tw-serif text-3xl lg:text-5xl leading-[0.95]">
-                The <span className="italic">golden hour,</span> in April.
-              </h2>
-              <div className="tw-mono text-[11px] opacity-70 tracking-[0.15em] mt-3">
-                18:42 · 22 APR 2026 · N. SAE-TANG
-              </div>
             </div>
           </div>
         </div>
@@ -100,7 +91,7 @@ export default function GalleryPage() {
       {/* MASONRY GRID */}
       <section className="relative z-[2] py-12 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid gap-3 grid-cols-2 lg:grid-cols-4 auto-rows-[180px] lg:auto-rows-[240px]">
+          <div className="grid gap-3 grid-cols-2 lg:grid-cols-4 auto-rows-[180px] lg:auto-rows-[240px] grid-flow-dense">
             {TILES.map((t, i) => (
               <div
                 key={i}

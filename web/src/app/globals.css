@@ -81,10 +81,10 @@ body {
   background: linear-gradient(92deg, #fde047, #ec4899 55%, #8b5cf6);
 }
 
+/* No mix-blend-mode: embedded Chromium (e.g. Cursor Simple Browser) can composite this to a blank white view. */
 .tw-noise {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
-  mix-blend-mode: overlay;
-  opacity: 0.22;
+  opacity: 0.18;
 }
 
 /* Frosted card surface */
@@ -149,7 +149,13 @@ body {
 }
 
 .tw-btn-primary {
-  background: linear-gradient(92deg, #fde047, #ec4899 55%, #8b5cf6);
+  background: linear-gradient(
+    92deg,
+    #fde047 0%,
+    #ec4899 40%,
+    #8b5cf6 70%,
+    #60a5fa 100%
+  );
   color: #0a0318;
 }
 

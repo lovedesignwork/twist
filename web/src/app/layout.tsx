@@ -61,7 +61,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${manrope.variable} ${italiana.variable} ${jetbrains.variable}`}
     >
-      <body className="bg-twist-ink text-white antialiased">{children}</body>
+      <body className="isolate bg-twist-ink text-white antialiased">{children}</body>
     </html>
   );
 }

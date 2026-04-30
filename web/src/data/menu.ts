@@ -1,5 +1,3 @@
-import { IMG } from "@/lib/images";
-
 /* ----------------------------------------------------------------------------
  * TWIST · Food menu
  * Source of truth: TWIST official printed menu (Version 5 · 24/08/01)
@@ -168,13 +166,3 @@ export const MENU_FOOTNOTES = {
     "Please let us know if you have any allergies or dietary requirements. Prices are in Thai Baht and subject to a 10% service charge and 7% VAT.",
   version: "Menu version 5 · 24/08/01",
 };
-
-/* ---------------- COCKTAILS (signature bar list) ---------------- */
-export const COCKTAILS = [
-  { n: "01", name: "Old Town Mule",    notes: "Ginger · Galangal · Lime · Smoke",          price: "420", tag: "SIGNATURE", img: IMG.cocktail3 },
-  { n: "02", name: "Phuket Sunset",    notes: "Butterfly Pea · Passion Fruit · Aged Rum",  price: "450", tag: "HOUSE",     img: IMG.cocktail1 },
-  { n: "03", name: "Andaman Negroni",  notes: "Campari · Makrut · Cold Brew · Orange",     price: "480", tag: "BARREL",    img: IMG.cocktail2 },
-  { n: "04", name: "Nineteen Martini", notes: "London Dry · Lemongrass · Sea Salt",        price: "460", tag: "DRY",       img: IMG.cocktail4 },
-  { n: "05", name: "Golden Hour",      notes: "Mezcal · Pineapple · Chili · Honey",        price: "470", tag: "SMOKE",     img: IMG.cocktail5 },
-  { n: "06", name: "Moonlit Basil",    notes: "Gin · Basil · Cucumber · Elderflower",      price: "430", tag: "GARDEN",    img: IMG.cocktail6 },
-] as const;

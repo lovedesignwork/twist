@@ -1,20 +1,18 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
 import { AuroraBackdrop } from "@/components/aurora-backdrop";
 import { AuroraNav } from "@/components/aurora-nav";
 import { AuroraFooter } from "@/components/aurora-footer";
 import {
-  COCKTAILS,
   KITCHEN,
   MENU_FOOTNOTES,
   PERANAKAN_SIGNATURES,
 } from "@/data/menu";
 
 export const metadata = {
-  title: "Menu — Cocktails, Kitchen & Wine",
+  title: "Menu — Kitchen & Wine",
   description:
-    "Twisted Peranakan signatures, an international kitchen, signature cocktails, and a wine list chosen for altitude. Every plate paired with a view.",
+    "Twisted Peranakan signatures, an international kitchen, and a wine list chosen for altitude. Every plate paired with a view.",
 };
 
 export default function MenuPage() {
@@ -34,15 +32,14 @@ export default function MenuPage() {
           as you like it.
         </h1>
         <p className="text-lg max-w-xl mx-auto mt-9 text-white/75 font-light leading-relaxed">
-          Twelve signature cocktails, a Thai-rooted kitchen, and a wine list chosen
-          for altitude. Every plate is paired with a view.
+          A Thai-rooted kitchen, the full à la carte, and a wine list chosen for
+          altitude. Every plate is paired with a view.
         </p>
         <div className="flex gap-3 justify-center mt-10 flex-wrap">
           {[
-            { label: "Cocktails", href: "#cocktails", active: true },
-            { label: "Kitchen", href: "#kitchen", active: false },
-            { label: "Wine", href: "#wine", active: false },
-            { label: "Sweets", href: "#sweets", active: false },
+            { label: "Kitchen", href: "#kitchen", active: true },
+            { label: "À la carte", href: "#carte", active: false },
+            { label: "Tasting", href: "#tasting", active: false },
           ].map((t) => (
             <a
               key={t.label}
@@ -56,61 +53,6 @@ export default function MenuPage() {
               {t.label}
             </a>
           ))}
-        </div>
-      </section>
-
-      {/* COCKTAILS */}
-      <section id="cocktails" className="relative z-[2] py-16 px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-end mb-12">
-            <div>
-              <div className="tw-mono text-[11px] tracking-[0.3em] text-twist-pink mb-5">
-                ( 01 ) — COCKTAILS
-              </div>
-              <h2 className="tw-serif text-5xl lg:text-7xl leading-[0.95] font-normal">
-                Signature <span className="italic tw-gradient-text">pours.</span>
-              </h2>
-            </div>
-            <p className="text-white/75 max-w-md lg:justify-self-end">
-              Our mixologists work in seasons — each list evolves with the
-              island&apos;s botanicals. What follows is spring 2026.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {COCKTAILS.map((c) => (
-              <article
-                key={c.n}
-                className="tw-card group hover:-translate-y-1 transition"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <Image
-                    src={c.img}
-                    alt={c.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between mb-3">
-                    <span className="tw-mono text-[10px] tracking-[0.25em] text-twist-yellow">
-                      {c.n} · {c.tag}
-                    </span>
-                    <span className="tw-mono text-[11px] opacity-70">
-                      ฿{c.price}
-                    </span>
-                  </div>
-                  <h3 className="tw-serif text-2xl font-medium leading-tight mb-2">
-                    {c.name}
-                  </h3>
-                  <p className="tw-mono text-[11px] opacity-55 tracking-wider">
-                    {c.notes}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -132,7 +74,7 @@ export default function MenuPage() {
               <div className="p-8 lg:p-12 lg:border-r border-white/[0.08] flex flex-col justify-between">
                 <div>
                   <div className="tw-mono text-[11px] tracking-[0.3em] text-twist-pink mb-5">
-                    ( 02 ) — THE KITCHEN
+                    ( 01 ) — THE KITCHEN
                   </div>
                   <h2 className="tw-serif text-5xl lg:text-7xl leading-[0.92] font-normal">
                     Twisted <span className="italic tw-gradient-text">Peranakan.</span>
@@ -189,12 +131,12 @@ export default function MenuPage() {
       </section>
 
       {/* THE FULL CARTE */}
-      <section className="relative z-[2] py-16 px-6 lg:px-16">
+      <section id="carte" className="relative z-[2] py-16 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-end mb-12">
             <div>
               <div className="tw-mono text-[11px] tracking-[0.3em] text-twist-cyan mb-5">
-                ( 03 ) — À LA CARTE
+                ( 02 ) — À LA CARTE
               </div>
               <h2 className="tw-serif text-5xl lg:text-7xl leading-[0.95] font-normal">
                 The full <span className="italic tw-gradient-text">carte.</span>
@@ -272,7 +214,7 @@ export default function MenuPage() {
       </section>
 
       {/* TASTING MENU CTA */}
-      <section className="relative z-[2] py-16 px-6 lg:px-16">
+      <section id="tasting" className="relative z-[2] py-16 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
           <div
             className="border border-white/10 rounded-3xl p-10 lg:p-14 grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16 items-center"

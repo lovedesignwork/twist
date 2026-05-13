@@ -3,11 +3,11 @@ import type { BlogPost } from "@/lib/types";
 
 export const STATIC_POSTS: BlogPost[] = [
   {
-    id: "post-wedding-clouds",
-    slug: "say-i-do-above-the-clouds",
-    title: "Say \"I Do\" Above the Clouds — TWIST as a Wedding Venue",
+    id: "post-ktik-wedding",
+    slug: "ktik-wedding-celebration",
+    title: "K'Tik Wedding — A Celebration Above the Clouds",
     excerpt:
-      "Your dream wedding deserves a setting as extraordinary as your love story. A look at what it means to hold a ceremony at 78 metres up — first toast to last song.",
+      "A beautiful celebration of love at TWIST. K'Tik's wedding captured the magic of saying \"I do\" 19 floors above Phuket Old Town — an unforgettable evening of romance and skyline views.",
     category: "DISPATCH",
     read_minutes: 8,
     published_at: "2026-04-14",

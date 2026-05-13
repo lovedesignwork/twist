@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AuroraBackdrop } from "@/components/aurora-backdrop";
 import { AuroraNav } from "@/components/aurora-nav";
 import { AuroraFooter } from "@/components/aurora-footer";
@@ -56,47 +57,49 @@ export default async function BlogPage() {
       {featured && (
         <section className="relative z-[2] py-10 px-6 lg:px-16">
           <div className="max-w-7xl mx-auto">
-            <article
-              className="grid lg:grid-cols-[1.3fr_1fr] border border-white/10 rounded-3xl overflow-hidden"
-              style={{
-                background:
-                  "linear-gradient(92deg, rgba(255,255,255,0), rgba(253,224,71,0.04))",
-              }}
-            >
-              <div className="relative min-h-[420px] lg:min-h-[560px]">
-                {featured.cover_url && (
-                  <Image
-                    src={featured.cover_url}
-                    alt={featured.title}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    className="object-cover"
-                  />
-                )}
-              </div>
-              <div className="p-10 lg:p-12 flex flex-col justify-center">
-                <div className="tw-mono text-[11px] tracking-[0.3em] text-twist-pink mb-5">
-                  ◉ FEATURED · {featured.category} ·{" "}
-                  {new Date(featured.published_at).toLocaleDateString("en-GB", {
-                    day: "2-digit",
-                    month: "short",
-                  })}
+            <Link href={`/blog/${featured.slug}`} className="block group">
+              <article
+                className="grid lg:grid-cols-[1.3fr_1fr] border border-white/10 rounded-3xl overflow-hidden transition hover:border-white/20"
+                style={{
+                  background:
+                    "linear-gradient(92deg, rgba(255,255,255,0), rgba(253,224,71,0.04))",
+                }}
+              >
+                <div className="relative min-h-[420px] lg:min-h-[560px] overflow-hidden">
+                  {featured.cover_url && (
+                    <Image
+                      src={featured.cover_url}
+                      alt={featured.title}
+                      fill
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      className="object-cover transition duration-700 group-hover:scale-105"
+                    />
+                  )}
                 </div>
-                <h2 className="tw-serif text-4xl lg:text-5xl leading-tight font-medium">
-                  {featured.title}
-                </h2>
-                <p className="text-base mt-5 text-white/75 leading-relaxed">
-                  {featured.excerpt}
-                </p>
-                <div className="tw-mono text-[11px] tracking-[0.2em] opacity-60 mt-7">
-                  {featured.read_minutes} MIN READ
+                <div className="p-10 lg:p-12 flex flex-col justify-center">
+                  <div className="tw-mono text-[11px] tracking-[0.3em] text-twist-pink mb-5">
+                    ◉ FEATURED · {featured.category} ·{" "}
+                    {new Date(featured.published_at).toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "short",
+                    })}
+                  </div>
+                  <h2 className="tw-serif text-4xl lg:text-5xl leading-tight font-medium">
+                    {featured.title}
+                  </h2>
+                  <p className="text-base mt-5 text-white/75 leading-relaxed">
+                    {featured.excerpt}
+                  </p>
+                  <div className="tw-mono text-[11px] tracking-[0.2em] opacity-60 mt-7">
+                    {featured.read_minutes} MIN READ
+                  </div>
+                  <span className="mt-7 tw-btn-pill tw-btn-ghost self-start">
+                    Continue reading →
+                  </span>
                 </div>
-                <button className="mt-7 tw-btn-pill tw-btn-ghost self-start">
-                  Continue reading →
-                </button>
-              </div>
-            </article>
+              </article>
+            </Link>
           </div>
         </section>
       )}
@@ -106,42 +109,45 @@ export default async function BlogPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {list.map((p) => (
-              <article
+              <Link
                 key={p.id}
-                className="tw-card group hover:-translate-y-1 transition"
+                href={`/blog/${p.slug}`}
+                className="tw-card group hover:-translate-y-1 transition block"
               >
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  {p.cover_url && (
-                    <Image
-                      src={p.cover_url}
-                      alt={p.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition duration-700 group-hover:scale-105"
-                    />
-                  )}
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between mb-4">
-                    <span className="tw-mono text-[10px] tracking-[0.25em] text-twist-yellow">
-                      ◆ {p.category}
-                    </span>
-                    <span className="tw-mono text-[10px] opacity-55">
-                      {new Date(p.published_at).toLocaleDateString("en-GB", {
-                        day: "2-digit",
-                        month: "short",
-                      })}
-                    </span>
+                <article>
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    {p.cover_url && (
+                      <Image
+                        src={p.cover_url}
+                        alt={p.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition duration-700 group-hover:scale-105"
+                      />
+                    )}
                   </div>
-                  <h3 className="tw-serif text-xl lg:text-2xl font-medium leading-snug mb-4 text-balance">
-                    {p.title}
-                  </h3>
-                  <div className="flex justify-between items-center text-[11px] opacity-55 tracking-[0.1em] tw-mono">
-                    <span>{p.read_minutes} MIN READ</span>
-                    <span>READ →</span>
+                  <div className="p-6">
+                    <div className="flex justify-between mb-4">
+                      <span className="tw-mono text-[10px] tracking-[0.25em] text-twist-yellow">
+                        ◆ {p.category}
+                      </span>
+                      <span className="tw-mono text-[10px] opacity-55">
+                        {new Date(p.published_at).toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "short",
+                        })}
+                      </span>
+                    </div>
+                    <h3 className="tw-serif text-xl lg:text-2xl font-medium leading-snug mb-4 text-balance">
+                      {p.title}
+                    </h3>
+                    <div className="flex justify-between items-center text-[11px] opacity-55 tracking-[0.1em] tw-mono">
+                      <span>{p.read_minutes} MIN READ</span>
+                      <span>READ →</span>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </Link>
             ))}
           </div>
 

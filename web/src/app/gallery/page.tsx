@@ -28,9 +28,6 @@ const TILES = [
   { src: IMG.cocktail5,       label: "DETAIL · GARNISH",    tall: false, wide: false },
   { src: IMG.diningRoom,      label: "COUPLE · DINNER",     tall: false, wide: false },
   { src: IMG.fullMoon,        label: "FULL MOON",           tall: true,  wide: false },
-  { src: IMG.rooftop011,      label: "ROOFTOP · NIGHT",     tall: false, wide: false },
-  { src: IMG.rooftop017,      label: "ROOFTOP · DAY",       tall: false, wide: false },
-  { src: IMG.rooftop042,      label: "ROOFTOP · DETAIL",    tall: false, wide: false },
 ] as const;
 
 const CATEGORIES = ["All", "The Rooftop", "The Bar", "The Kitchen", "Events", "Skyline"];

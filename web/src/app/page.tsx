@@ -53,6 +53,8 @@ export default function HomePage() {
                 sizes="(max-width: 1024px) 100vw, 1280px"
                 className="object-cover object-bottom"
               />
+              {/* Black gradient overlay for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="absolute left-6 lg:left-12 bottom-6 lg:bottom-10 right-6 text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.85),0_1px_4px_rgba(0,0,0,0.9)]">
                 <div className="tw-mono text-[10px] tracking-[0.3em] text-twist-yellow mb-2">
                   ◉ TONIGHT · 18:42 SUNSET · 27.4°C · CLEAR
@@ -174,9 +176,14 @@ export default function HomePage() {
                 you won&apos;t find anywhere else in Phuket — inspired by local botanicals
                 and classic blends, each drink is a work of art.
               </p>
-              <Link href="/menu" className="mt-5 tw-btn-pill tw-btn-ghost inline-flex w-max">
+              <a
+                href="https://q.me-qr.com/0t2w52pz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 tw-btn-pill tw-btn-ghost inline-flex w-max"
+              >
                 Cocktail menu →
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -204,9 +211,14 @@ export default function HomePage() {
                 inspiration — crafted to impress, paired with a view that does the
                 same.
               </p>
-              <Link href="/menu" className="mt-5 tw-btn-pill tw-btn-ghost inline-flex w-max">
-                Kitchen menu →
-              </Link>
+              <a
+                href="https://q.me-qr.com/0t2w52pz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 tw-btn-pill tw-btn-ghost inline-flex w-max"
+              >
+                Drinks menu →
+              </a>
             </div>
           </div>
         </div>

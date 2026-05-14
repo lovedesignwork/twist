@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Route } from "next";
 import { AuroraBackdrop } from "@/components/aurora-backdrop";
 import { AuroraNav } from "@/components/aurora-nav";
 import { AuroraFooter } from "@/components/aurora-footer";
@@ -57,7 +58,7 @@ export default async function BlogPage() {
       {featured && (
         <section className="relative z-[2] py-10 px-6 lg:px-16">
           <div className="max-w-7xl mx-auto">
-            <Link href={`/blog/${featured.slug}`} className="block group">
+            <Link href={`/blog/${featured.slug}` as Route} className="block group">
               <article
                 className="grid lg:grid-cols-[1.3fr_1fr] border border-white/10 rounded-3xl overflow-hidden transition hover:border-white/20"
                 style={{
@@ -111,7 +112,7 @@ export default async function BlogPage() {
             {list.map((p) => (
               <Link
                 key={p.id}
-                href={`/blog/${p.slug}`}
+                href={`/blog/${p.slug}` as Route}
                 className="tw-card group hover:-translate-y-1 transition block"
               >
                 <article>

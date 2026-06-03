@@ -12,21 +12,15 @@ export const metadata = {
 };
 
 const TILES = [
-  { src: IMG.rooftopBar,      label: "ROOFTOP · SUNSET",    tall: true,  wide: false },
   { src: IMG.barCounter,      label: "BAR · COUNTER",       tall: false, wide: false },
   { src: IMG.blackCod,        label: "DISH · BLACK COD",    tall: false, wide: false },
   { src: IMG.cityNight,       label: "CITY LIGHTS",         tall: true,  wide: false },
-  { src: IMG.candlelitTable,  label: "GUEST · CANDLELIT",   tall: false, wide: false },
   { src: IMG.cocktail2,       label: "COCKTAIL · DETAIL",   tall: false, wide: false },
-  { src: IMG.heroPanorama,    label: "SKYLINE · PANORAMA",  tall: false, wide: true  },
   { src: IMG.jazzNight,       label: "JAZZ SET · STAGE",    tall: false, wide: false },
-  { src: IMG.loungeInterior,  label: "INTERIOR · LOUNGE",   tall: false, wide: false },
   { src: IMG.weddingFeature,  label: "EVENT · CEREMONY",    tall: true,  wide: false },
   { src: IMG.platingDetail,   label: "PLATING",             tall: false, wide: false },
   { src: IMG.bartenderPour,   label: "BARTENDER · POUR",    tall: false, wide: false },
-  { src: IMG.heroSkyline,     label: "SUNSET · OLD TOWN",   tall: false, wide: true  },
   { src: IMG.cocktail5,       label: "DETAIL · GARNISH",    tall: false, wide: false },
-  { src: IMG.diningRoom,      label: "COUPLE · DINNER",     tall: false, wide: false },
   { src: IMG.fullMoon,        label: "FULL MOON",           tall: true,  wide: false },
 ] as const;
 

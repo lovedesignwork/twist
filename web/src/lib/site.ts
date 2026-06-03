@@ -15,8 +15,7 @@ export const SITE = {
     postcode: "83000",
     country: "Thailand",
     geo: { lat: 7.8804, lng: 98.3923 },
-    google:
-      "https://www.google.com/maps/search/?api=1&query=Royal+Phuket+City+Hotel",
+    google: "https://maps.app.goo.gl/ziQanXUQf1f8yvEV6",
   },
   hours: [
     { label: "Bar", value: "17:00 → LATE" },

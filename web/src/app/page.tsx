@@ -211,14 +211,24 @@ export default function HomePage() {
                 inspiration — crafted to impress, paired with a view that does the
                 same.
               </p>
-              <a
-                href="https://q.me-qr.com/0t2w52pz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 tw-btn-pill tw-btn-ghost inline-flex w-max"
-              >
-                Drinks menu →
-              </a>
+              <div className="flex flex-wrap gap-3 mt-5">
+                <a
+                  href="https://q.me-qr.com/0t2w52pz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tw-btn-pill tw-btn-ghost inline-flex w-max"
+                >
+                  Drinks menu →
+                </a>
+                <a
+                  href="https://q.me-qr.com/xwlsasra"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tw-btn-pill tw-btn-ghost inline-flex w-max"
+                >
+                  Wine list →
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -68,8 +68,8 @@ export const IMG = {
   pridePartyRoof: venue("158"),      // Twist # (158)  — rooftop party/pride
 
   // ------ JOURNAL / LIFESTYLE ------
-  weddingFeature: venue("156"),      // Twist # (156)  — wedding feature
-  reviewSunset:   twist("022"),      // Rooftop 022    — sunset review photo
+  weddingFeature: "/imagessss/ktik-wedding.png",  // K'Tik wedding photo
+  reviewSunset:   "/imagessss/TWIST_sunset.png",  // Sunset review photo
   pridePartyArticle: venue("160"),   // Twist # (160)  — pride party article
   rooftopSunrise: venue("106"),      // Twist # (106)  — sunrise
   venuePortrait1: venue("126"),      // Twist # (126)

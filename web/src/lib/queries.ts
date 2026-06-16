@@ -50,3 +50,30 @@ export async function getFeaturedPost(): Promise<BlogPost | null> {
   const all = await getBlogPosts();
   return all.find((p) => p.is_featured) ?? all[0] ?? null;
 }
+
+/** Get a single blog post by slug. */
+export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
+  if (!supabaseConfigured()) {
+    return STATIC_POSTS.find((p) => p.slug === slug) ?? null;
+  }
+  try {
+    const sb = await createClient();
+    const { data, error } = await sb
+      .from("posts")
+      .select("*")
+      .eq("slug", slug)
+      .single();
+    if (error || !data) {
+      return STATIC_POSTS.find((p) => p.slug === slug) ?? null;
+    }
+    return data as BlogPost;
+  } catch {
+    return STATIC_POSTS.find((p) => p.slug === slug) ?? null;
+  }
+}
+
+/** Get all post slugs for static generation. */
+export async function getAllPostSlugs(): Promise<string[]> {
+  const posts = await getBlogPosts();
+  return posts.map((p) => p.slug);
+}

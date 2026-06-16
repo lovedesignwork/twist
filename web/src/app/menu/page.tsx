@@ -38,8 +38,8 @@ export default function MenuPage() {
         <div className="flex gap-3 justify-center mt-10 flex-wrap">
           {[
             { label: "Kitchen", href: "#kitchen", active: true },
-            { label: "À la carte", href: "#carte", active: false },
-            { label: "Tasting", href: "#tasting", active: false },
+            { label: "Drinks", href: "#drinks", active: false },
+            { label: "Wine List", href: "#winelist", active: false },
           ].map((t) => (
             <a
               key={t.label}
@@ -210,48 +210,6 @@ export default function MenuPage() {
           <p className="tw-mono text-[10px] tracking-[0.18em] uppercase opacity-50 mt-6 text-center max-w-3xl mx-auto leading-relaxed">
             {MENU_FOOTNOTES.legal} · {MENU_FOOTNOTES.version}
           </p>
-        </div>
-      </section>
-
-      {/* TASTING MENU CTA */}
-      <section id="tasting" className="relative z-[2] py-16 px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div
-            className="border border-white/10 rounded-3xl p-10 lg:p-14 grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16 items-center"
-            style={{
-              background: `
-                radial-gradient(600px 400px at 85% 20%, rgba(253,224,71,0.2), transparent 60%),
-                radial-gradient(700px 500px at 15% 90%, rgba(139,92,246,0.35), transparent 60%)`,
-            }}
-          >
-            <div>
-              <div className="tw-mono text-[11px] tracking-[0.3em] text-twist-yellow mb-5">
-                ◉ SIX-COURSE TASTING
-              </div>
-              <h2 className="tw-serif text-5xl lg:text-7xl leading-[0.95] font-normal">
-                Let the <span className="italic tw-gradient-text">kitchen</span> decide.
-              </h2>
-              <p className="text-base mt-5 text-white/80 max-w-lg leading-relaxed">
-                A six-course chef&apos;s journey, paired optionally with wine or
-                cocktails. Served nightly by reservation. Allow two hours, end the
-                evening slowly.
-              </p>
-            </div>
-            <div className="lg:text-right">
-              <div className="tw-serif text-6xl lg:text-7xl font-medium text-twist-yellow leading-none">
-                ฿2,400
-              </div>
-              <div className="tw-mono text-[11px] opacity-60 tracking-[0.15em] mt-2">
-                PP · +฿1,200 WINE PAIRING
-              </div>
-              <Link
-                href="/reserve"
-                className="mt-6 tw-btn-pill tw-btn-primary inline-flex"
-              >
-                Reserve tasting →
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 

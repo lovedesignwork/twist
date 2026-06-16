@@ -177,7 +177,7 @@ export default function HomePage() {
                 and classic blends, each drink is a work of art.
               </p>
               <a
-                href="https://q.me-qr.com/0t2w52pz"
+                href="https://qr1.me-qr.com/mobile/pdf/05cd6da8-57ea-4b5d-8e3b-7fb3e5fc8075"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 tw-btn-pill tw-btn-ghost inline-flex w-max"

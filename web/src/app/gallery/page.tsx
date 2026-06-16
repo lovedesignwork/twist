@@ -61,24 +61,6 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* FEATURED HERO TILE */}
-      <section className="relative z-[2] py-6 px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative rounded-3xl overflow-hidden border border-white/10">
-            <div className="relative aspect-[16/8]">
-              <Image
-                src={IMG.goldenHour}
-                alt="Featured: golden hour over Phuket Old Town"
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* MASONRY GRID */}
       <section className="relative z-[2] py-12 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
@@ -97,10 +79,6 @@ export default function GalleryPage() {
                   sizes="(max-width: 640px) 50vw, 25vw"
                   className="object-cover transition duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition" />
-                <div className="absolute left-3 bottom-3 tw-mono text-[10px] tracking-[0.2em] text-white/0 group-hover:text-white/85 transition">
-                  {t.label}
-                </div>
               </div>
             ))}
           </div>

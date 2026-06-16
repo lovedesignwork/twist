@@ -158,34 +158,6 @@ export default async function BlogPage() {
         </div>
       </section>
 
-      {/* NEWSLETTER */}
-      <section className="relative z-[2] py-16 px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div
-            className="rounded-3xl p-10 lg:p-14 border border-white/10 text-center"
-            style={{
-              background: `
-                radial-gradient(700px 400px at 20% 20%, rgba(139,92,246,0.3), transparent 60%),
-                radial-gradient(600px 400px at 80% 80%, rgba(253,224,71,0.2), transparent 60%)`,
-            }}
-          >
-            <div className="tw-mono text-[11px] tracking-[0.3em] text-twist-cyan mb-4">
-              ( THE NEWSLETTER )
-            </div>
-            <h2 className="tw-serif text-4xl lg:text-5xl leading-[1.05] font-normal">
-              One <span className="italic tw-gradient-text">dispatch</span>, every full moon.
-            </h2>
-            <p className="text-base text-white/75 max-w-md mx-auto mt-5 leading-relaxed">
-              New menus, guest nights, and our writer&apos;s quiet favourites.
-              Fifteen-hundred subscribers, no spam, unsubscribe anytime.
-            </p>
-            <div className="mt-9 relative">
-              <NewsletterForm />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <AuroraFooter />
     </div>
   );

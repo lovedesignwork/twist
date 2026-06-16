@@ -81,7 +81,6 @@ export const KITCHEN: MenuSection[] = [
   {
     section: "Appetizer",
     items: [
-      { name: "Mexican Corn on the Cob", notes: "Sour mayo · crispy bacon", price: "150" },
       { name: "Rocket Salad", notes: "Maple & brown sugar bacon · balsamic dressing", price: "210" },
       { name: "Peranakan Salad", notes: "Warmed sesame dried squid · smoked shrimps · skewer", price: "250" },
       { name: "Crispy Calamari Rings", notes: "Deep-fried curry calamari · tartare sauce", price: "280" },

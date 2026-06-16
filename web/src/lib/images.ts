@@ -25,7 +25,7 @@ export const IMG = {
   heroPanorama:   twist("008"),      // Rooftop 008    — wide city panorama
   cityNight:      twist("006"),      // Rooftop 006    — city at night
   fullMoon:       twist("018"),      // Rooftop 018    — full-moon night shot
-  goldenHour:     twist("016"),      // Rooftop 016    — golden-hour sunset
+  goldenHour:     twistFile("Twist002.jpg"),  // Twist002 — golden-hour sunset
 
   // ------ ROOFTOP / VENUE ------
   rooftopBar:     twist("025"),      // Rooftop 025    — main bar counter
@@ -68,8 +68,8 @@ export const IMG = {
   pridePartyRoof: venue("158"),      // Twist # (158)  — rooftop party/pride
 
   // ------ JOURNAL / LIFESTYLE ------
-  weddingFeature: "/imagessss/ktik-wedding.png",  // K'Tik wedding photo
-  reviewSunset:   "/imagessss/TWIST_sunset.png",  // Sunset review photo
+  weddingFeature: twistFile("Twist001.jpg"),  // Twist001 — wedding feature
+  reviewSunset:   twist("022"),      // Rooftop 022    — sunset review photo
   pridePartyArticle: venue("160"),   // Twist # (160)  — pride party article
   rooftopSunrise: venue("106"),      // Twist # (106)  — sunrise
   venuePortrait1: venue("126"),      // Twist # (126)

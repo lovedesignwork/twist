@@ -5,6 +5,7 @@
 
 export const SITE = {
   name: "TWIST",
+  url: "https://twistphuket.com",
   tagline: "Rooftop Restaurant & Bar · Phuket Old Town",
   description:
     "Rooftop Bar Phuket Old Town - 19th Royal Phuket City Hotel. Experience the best sunset panoramic view in Phuket Old Town, indulge in a special dinner while savoring International local fusion-style cuisine!",

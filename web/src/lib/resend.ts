@@ -13,4 +13,12 @@ export function getResend(): Resend {
 }
 
 export const FROM = process.env.RESEND_FROM_EMAIL ?? "TWIST Phuket <onboarding@resend.dev>";
-export const TO_INBOX = process.env.RESEND_TO_EMAIL ?? "marketing@royalphuketcity.com";
+
+/** All staff inboxes that receive reservation, contact, and inquiry notifications */
+export const TO_INBOX = [
+  "reservation@royalphuketcity.com",
+  "sales@royalphuketcity.com",
+  "marketing@royalphuketcity.com",
+  "puttipop.l@royalphuketcity.com",
+  "gm@royalphuketcity.com",
+];

@@ -27,15 +27,14 @@ export const SITE = {
   phone: "099 157 8143",
   /** E.164 form for `tel:` links and Resend reply addresses. */
   phoneTel: "+66991578143",
-  /** Single inbox for every channel — kept as one field so it's hard to drift. */
-  email: "marketing@royalphuketcity.com",
+  /** Primary public-facing email for display */
+  email: "reservation@royalphuketcity.com",
   /**
-   * Aliased shape for components that read by purpose.
-   * All point at the same inbox, by design.
+   * Purpose-specific emails for display on relevant pages.
    */
   emails: {
-    reservations: "marketing@royalphuketcity.com",
-    events: "marketing@royalphuketcity.com",
+    reservations: "reservation@royalphuketcity.com",
+    events: "sales@royalphuketcity.com",
     press: "marketing@royalphuketcity.com",
   },
   social: {
@@ -64,7 +63,7 @@ export const FAQS = [
   },
   {
     q: "Can I host a private event or wedding?",
-    a: "Absolutely — from twelve-cover chef's tables to full venue buyouts and rooftop ceremonies. Write to marketing@royalphuketcity.com and our team will design every detail.",
+    a: "Absolutely — from twelve-cover chef's tables to full venue buyouts and rooftop ceremonies. Write to sales@royalphuketcity.com and our team will design every detail.",
   },
   {
     q: "Is TWIST family friendly?",

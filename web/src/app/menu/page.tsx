@@ -35,25 +35,6 @@ export default function MenuPage() {
           A Thai-rooted kitchen, the full à la carte, and a wine list chosen for
           altitude. Every plate is paired with a view.
         </p>
-        <div className="flex gap-3 justify-center mt-10 flex-wrap">
-          {[
-            { label: "Kitchen", href: "#kitchen", active: true },
-            { label: "Drinks", href: "#drinks", active: false },
-            { label: "Wine List", href: "#winelist", active: false },
-          ].map((t) => (
-            <a
-              key={t.label}
-              href={t.href}
-              className={`px-5 py-[10px] rounded-full text-[12px] tracking-[0.2em] uppercase font-medium border transition ${
-                t.active
-                  ? "bg-twist-yellow/10 border-twist-yellow/60 text-twist-yellow"
-                  : "bg-white/[0.03] border-white/15 text-white/85 hover:border-white/30"
-              }`}
-            >
-              {t.label}
-            </a>
-          ))}
-        </div>
       </section>
 
       {/* TWISTED PERANAKAN — SIGNATURES */}

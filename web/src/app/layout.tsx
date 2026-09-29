@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Manrope, Italiana, JetBrains_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -61,7 +62,10 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${manrope.variable} ${italiana.variable} ${jetbrains.variable}`}
     >
-      <body className="isolate bg-twist-ink text-white antialiased">{children}</body>
+      <body className="isolate bg-twist-ink text-white antialiased">
+        {children}
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }

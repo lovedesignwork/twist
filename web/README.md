@@ -52,6 +52,18 @@ npm run dev
 
 The site **works fully out of the box** without any environment variables — every page renders against shipped static seed data. Add Supabase + Resend credentials to enable persistence and emails.
 
+## Google Analytics
+
+The root layout loads the existing TWIST GA4 web stream (`G-36C18XKX3H`)
+on `twistphuket.com` and `www.twistphuket.com` only. Local development and
+Vercel preview domains do not send visits to the production property.
+
+Page views on client-side navigation use the stream's existing Enhanced
+measurement setting: **Page changes based on browser history events**.
+Keep this enabled; do not add a second manual page-view handler or Google tag.
+Verify a deployment by visiting the live site and checking the TWIST property's
+Realtime report (property `480338245`, web stream `10331915555`).
+
 ## Supabase Setup
 
 ```bash

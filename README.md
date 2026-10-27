@@ -6,7 +6,7 @@ A redesign of [twistphuket.com](https://twistphuket.com) — the rooftop restaur
 
 ```
 TWIST/
-├── web/        Next.js 15 application (the production site)
+├── web/        Next.js 16 application (the production site)
 ├── source/     Original Aurora design exploration (JSX mockups + HTML canvas)
 └── README.md
 ```
@@ -20,13 +20,13 @@ See [`web/README.md`](./web/README.md) for the full developer guide — stack, s
 ```bash
 cd web
 npm install
-cp .env.example .env.local   # optional — site works without env vars
-npm run dev                   # → http://localhost:3000
+cp .env.example .env.local   # local fallback available; production blog needs CMS variables
+npm run dev                   # → http://localhost:3003
 ```
 
 ## Stack
 
-- **Next.js 15** (App Router, Server Components)
+- **Next.js 16** (App Router, Server Components)
 - **Tailwind CSS v4**
 - **Supabase** (Postgres + RLS) for events, blog posts, reservations, newsletter
 - **Resend** for transactional email
@@ -40,3 +40,7 @@ Aurora — cinematic editorial direction with a purple / pink / yellow / light-b
 ## License
 
 © Royal Phuket City Hotel · TWIST · 19F. All rights reserved.
+
+## Production deployment
+
+The Vercel project `twist` uses `web` as its Root Directory. Its framework, dependencies and build output must all resolve inside that directory; build with `npm ci` and `npm run build`. Pushes to `main` trigger production deployment. Verify the resulting deployment against the exact Git SHA before declaring it live.

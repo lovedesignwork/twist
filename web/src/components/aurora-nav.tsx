@@ -36,14 +36,14 @@ export function AuroraNav() {
           : "bg-transparent"
       }`}
     >
-      <div className="flex items-center justify-between px-6 lg:px-16 py-5 lg:py-7">
+      <div className="flex items-center justify-between px-5 sm:px-6 lg:px-16 py-5 lg:py-7">
         <Link href="/" className="hover:opacity-80 transition">
           <Image
             src="/TWIST-LOGO-White-PNG.png"
             alt="TWIST"
             width={96}
             height={36}
-            className="h-9 w-auto object-contain"
+            className="w-22 h-auto sm:h-9 sm:w-auto object-contain"
             priority
           />
         </Link>
@@ -67,10 +67,10 @@ export function AuroraNav() {
           })}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           <Link
             href="/reserve"
-            className="hidden sm:inline-flex tw-btn-pill tw-btn-primary shadow-[0_4px_24px_-4px_rgba(139,92,246,0.45)] hover:opacity-95"
+            className="hidden sm:inline-flex whitespace-nowrap tw-btn-pill tw-btn-primary shadow-[0_4px_24px_-4px_rgba(139,92,246,0.45)] hover:opacity-95"
           >
             Reserve →
           </Link>

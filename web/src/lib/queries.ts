@@ -1,8 +1,7 @@
 import "server-only";
 import { createClient } from "@/lib/supabase/server";
 import { STATIC_EVENTS } from "@/data/events";
-import { STATIC_POSTS } from "@/data/posts";
-import type { BlogPost, EventItem } from "@/lib/types";
+import type { EventItem } from "@/lib/types";
 
 const supabaseConfigured = () =>
   Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
@@ -30,50 +29,5 @@ export async function getFeaturedEvent(): Promise<EventItem | null> {
   return all.find((e) => e.is_featured) ?? all[0] ?? null;
 }
 
-/** Get all published blog posts, newest first. */
-export async function getBlogPosts(): Promise<BlogPost[]> {
-  if (!supabaseConfigured()) return STATIC_POSTS;
-  try {
-    const sb = await createClient();
-    const { data, error } = await sb
-      .from("posts")
-      .select("*")
-      .order("published_at", { ascending: false });
-    if (error || !data || data.length === 0) return STATIC_POSTS;
-    return data as BlogPost[];
-  } catch {
-    return STATIC_POSTS;
-  }
-}
-
-export async function getFeaturedPost(): Promise<BlogPost | null> {
-  const all = await getBlogPosts();
-  return all.find((p) => p.is_featured) ?? all[0] ?? null;
-}
-
-/** Get a single blog post by slug. */
-export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
-  if (!supabaseConfigured()) {
-    return STATIC_POSTS.find((p) => p.slug === slug) ?? null;
-  }
-  try {
-    const sb = await createClient();
-    const { data, error } = await sb
-      .from("posts")
-      .select("*")
-      .eq("slug", slug)
-      .single();
-    if (error || !data) {
-      return STATIC_POSTS.find((p) => p.slug === slug) ?? null;
-    }
-    return data as BlogPost;
-  } catch {
-    return STATIC_POSTS.find((p) => p.slug === slug) ?? null;
-  }
-}
-
-/** Get all post slugs for static generation. */
-export async function getAllPostSlugs(): Promise<string[]> {
-  const posts = await getBlogPosts();
-  return posts.map((p) => p.slug);
-}
+// Blog queries live separately so connecting the CMS does not change booking data.
+export { getBlogPosts, getPostBySlug, getAllPostSlugs, getFeaturedPost } from './blog';

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "db:seed": "tsx scripts/seed.ts"
+    "db:seed": "tsx scripts/seed.ts",
+    "check:blog": "tsx scripts/check-blog.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",

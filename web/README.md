@@ -21,7 +21,7 @@ A redesign of [twistphuket.com](https://twistphuket.com) — built on Next.js 15
 - `/menu` — Cocktails + Kitchen menu, six-course tasting CTA
 - `/gallery` — Masonry archive with category filters
 - `/events` — Featured event + upcoming list + private/wedding CTA
-- `/blog` — Featured article + grid + newsletter
+- `/blog` — Supabase editorial archive and individual articles
 - `/contact` — Reservation form + info cards + general enquiry + FAQ
 
 ## API Routes
@@ -50,7 +50,7 @@ npm run dev
 # → http://localhost:3000
 ```
 
-The site **works fully out of the box** without any environment variables — every page renders against shipped static seed data. Add Supabase + Resend credentials to enable persistence and emails.
+Local development can use shipped seed content. Production blog pages require the dedicated BLOG_SUPABASE_URL and BLOG_SUPABASE_SERVICE_ROLE_KEY variables. Reservation persistence and email delivery require their separate Supabase and Resend configuration.
 
 ## Google Analytics
 
@@ -71,11 +71,11 @@ Realtime report (property `480338245`, web stream `10331915555`).
 # 2. Run the migration (Supabase SQL Editor):
 #    Copy/paste the contents of supabase/migrations/0001_init.sql
 # 3. Copy your Project URL + anon + service_role keys into .env.local
-# 4. Seed the events + posts tables:
+# 4. Seed the events table (blog content is managed separately):
 npm run db:seed
 ```
 
-Schema: `events`, `posts`, `reservations`, `newsletter_subscribers`. Public reads on events/posts via RLS. Reservations + newsletter writes happen server-side using the service-role key (never exposed to the client).
+Legacy schema: `events`, `posts`, `reservations`, `newsletter_subscribers`. Public event reads use RLS. The current blog uses separate `twist_blog_posts` and `twist_blog_assets` tables with server-only access. Reservations + newsletter writes happen server-side using the service-role key (never exposed to the client).
 
 ## Resend Setup
 
@@ -120,3 +120,7 @@ Set the env vars in the Vercel project dashboard, then push to main.
 ---
 
 Built for the night. © TWIST · Royal Phuket City Hotel · 19F
+
+## Blog publishing
+
+The live blog uses the existing `twist_blog_posts` and `twist_blog_assets` tables in the Royal Phuket City Hotel Supabase project. See [the publishing guide](content/PUBLISHING.md). The event seed command does not modify blog content.

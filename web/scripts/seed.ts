@@ -1,5 +1,6 @@
 /**
- * Seeds Supabase with the static events + posts shipped in /src/data.
+ * Seeds Supabase with the static events shipped in /src/data.
+ * Blog publishing is managed in twist_blog_posts; see content/PUBLISHING.md.
  *
  * Usage:
  *   1. Set SUPABASE_SERVICE_ROLE_KEY + NEXT_PUBLIC_SUPABASE_URL in .env.local
@@ -8,7 +9,6 @@
 
 import { createClient } from "@supabase/supabase-js";
 import { STATIC_EVENTS } from "../src/data/events";
-import { STATIC_POSTS } from "../src/data/posts";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -31,13 +31,6 @@ async function main() {
     .upsert(STATIC_EVENTS, { onConflict: "slug" });
   if (evtErr) throw evtErr;
   console.log(`  ✓ ${STATIC_EVENTS.length} events`);
-
-  console.log("→ Seeding posts...");
-  const { error: postErr } = await sb
-    .from("posts")
-    .upsert(STATIC_POSTS, { onConflict: "slug" });
-  if (postErr) throw postErr;
-  console.log(`  ✓ ${STATIC_POSTS.length} posts`);
 
   console.log("Done. ✦");
 }

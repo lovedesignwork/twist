@@ -9,7 +9,7 @@ const COLS = [
       { label: "Reserve a Table", href: "/reserve" as const },
       { label: "Menu", href: "/menu" as const },
       { label: "Events", href: "/events" as const },
-      { label: "Journal", href: "/blog" as const },
+      { label: "Blog", href: "/blog" as const },
     ],
   },
   {
@@ -32,7 +32,7 @@ const COLS = [
   },
 ];
 
-export function AuroraFooter() {
+export function AuroraFooter({ hideYear = false }: { hideYear?: boolean }) {
   return (
     <footer className="relative z-[2] border-t border-white/[0.08] px-6 lg:px-16 pt-14 pb-10">
       <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 mb-14">
@@ -82,7 +82,7 @@ export function AuroraFooter() {
         ))}
       </div>
       <div className="flex flex-col md:flex-row md:justify-between gap-3 text-[11px] text-white/40 tracking-[0.15em] tw-mono">
-        <div>© {new Date().getFullYear()} TWIST · ROYAL PHUKET CITY HOTEL</div>
+        <div>© {hideYear ? "" : `${new Date().getFullYear()} `}TWIST · ROYAL PHUKET CITY HOTEL</div>
         <div>MADE FOR THE NIGHT</div>
       </div>
     </footer>

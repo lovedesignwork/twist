@@ -182,3 +182,35 @@ html {
 .no-scrollbar {
   scrollbar-width: none;
 }
+
+/* Blog: a plain reading surface, using the existing Aurora typography. */
+.blog-shell { background: #0c0713; }
+.blog-eyebrow { font-family: var(--font-mono); font-size: 10px; line-height: 1.8; letter-spacing: .2em; color: #fde047; }
+.blog-card { min-width: 0; }
+.blog-card a:focus-visible, .article-toc a:focus-visible { outline: 2px solid #fde047; outline-offset: 6px; border-radius: 8px; }
+.article-prose { color: #d5d0db; font-size: 17px; line-height: 1.95; overflow-wrap: break-word; }
+.article-prose p { margin: 0 0 1.5em; }
+.article-prose h2, .article-prose h3 { color: #fff; font-family: var(--font-serif); font-weight: 500; line-height: 1.25; scroll-margin-top: 130px; }
+.article-prose h2 { font-size: clamp(29px, 4vw, 38px); margin: 1.8em 0 .7em; }
+.article-prose h3 { font-size: 24px; margin: 1.4em 0 .6em; }
+.article-prose strong { color: #f7f3fa; font-weight: 650; }
+.article-prose a { color: #fde47e; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #fde47e66; }
+.article-prose a:hover { text-decoration-color: currentColor; }
+.article-prose ul { padding-left: 1.5em; list-style: disc; margin-bottom: 1.7em; }
+.article-prose li { margin-bottom: .6em; }
+.article-figure { margin: 2.3em 0; }
+.article-figure figcaption { color: #aaa2b3; font-size: 12px; line-height: 1.8; margin-top: 12px; }
+.article-table { overflow-x: auto; margin: 2em 0; border: 1px solid #ffffff24; border-radius: 12px; }
+.article-table table { width: 100%; min-width: 510px; border-collapse: collapse; text-align: left; font-size: 14px; line-height: 1.7; }
+.article-table th { background: #21152e; color: #f8e9ae; font-weight: 600; }
+.article-table td, .article-table th { padding: 16px; border-bottom: 1px solid #ffffff18; vertical-align: top; }
+.article-table tr:last-child td { border: 0; }
+.article-toc { border: 1px solid #ffffff26; border-radius: 14px; padding: 20px 24px; background: #ffffff03; }
+.article-toc summary { cursor: pointer; display: flex; justify-content: space-between; gap: 15px; font-size: 15px; color: #f4e4a5; list-style: none; }
+.article-toc summary::-webkit-details-marker { display:none; }
+.article-toc[open] summary span { transform: rotate(45deg); }
+.article-toc ol { padding: 18px 0 0 20px; list-style: decimal; color: #c7bece; font-size: 14px; line-height: 2; }
+.article-toc a:hover { color: #fde047; }
+.article-cta { background: #1a1025; border: 1px solid #a88acc30; }
+@media (min-width: 768px) { .article-prose { font-size: 18px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }

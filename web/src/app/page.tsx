@@ -1,3 +1,5 @@
+import { getBlogPosts } from "@/lib/blog";
+import { BlogCard } from "@/components/blog-card";
 import Image from "next/image";
 import Link from "next/link";
 import { AuroraBackdrop } from "@/components/aurora-backdrop";
@@ -6,7 +8,10 @@ import { AuroraFooter } from "@/components/aurora-footer";
 import { IMG } from "@/lib/images";
 import { FAQS, SITE } from "@/lib/site";
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const latestPosts = (await getBlogPosts()).slice(0, 3);
   return (
     <div className="relative bg-twist-ink min-h-screen overflow-hidden">
       <AuroraBackdrop intensity={0.85} variant="default" />
@@ -57,7 +62,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="absolute left-6 lg:left-12 bottom-6 lg:bottom-10 right-6 text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.85),0_1px_4px_rgba(0,0,0,0.9)]">
                 <div className="tw-mono text-[10px] tracking-[0.3em] text-twist-yellow mb-2">
-                  ◉ TONIGHT · 18:42 SUNSET · 27.4°C · CLEAR
+                  ◉ GOLDEN HOUR · PHUKET OLD TOWN
                 </div>
                 <div className="tw-serif text-2xl lg:text-4xl italic">
                   &ldquo;Come for golden sunsets. Stay for glittering city lights.&rdquo;
@@ -231,6 +236,18 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="relative z-[2] py-20 px-6 lg:px-16" aria-labelledby="latest-articles">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+            <div><p className="blog-eyebrow">THE BLOG · A LITTLE LOCAL CONTEXT</p>
+              <h2 id="latest-articles" className="tw-serif text-4xl lg:text-6xl mt-5">Before the <span className="italic tw-gradient-text">evening begins.</span></h2>
+            </div>
+            <Link href="/blog" className="text-twist-yellow text-sm whitespace-nowrap">Explore all articles ↗</Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">{latestPosts.map(post => <BlogCard key={post.slug} post={post} />)}</div>
         </div>
       </section>
 

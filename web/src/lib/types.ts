@@ -16,17 +16,34 @@ export interface EventItem {
   description: string | null;
 }
 
+export interface BlogImage {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+  generated: boolean;
+}
+
 export interface BlogPost {
-  id: string;
+  id: string | number;
   slug: string;
   title: string;
+  seo_title: string;
   excerpt: string;
-  category: string;      // DISPATCH | KITCHEN | BAR | CULTURE | FEATURE | REVIEW
-  read_minutes: number;
-  published_at: string;  // ISO
-  cover_url: string | null;
-  body_md: string | null;
-  is_featured: boolean;
+  meta_description: string;
+  category: string;
+  cover_url: string;
+  body_md: string;
+  images: BlogImage[];
+  related_slugs: string[];
+  target_keyword: string;
+  status: 'draft' | 'published' | 'archived';
+  // Only used by the local seed. Never rendered or serialized to a client.
+  published_at?: string;
+  scheduled_for?: string | null;
+  is_featured?: boolean;
+  read_minutes?: number;
 }
 
 export interface Reservation {

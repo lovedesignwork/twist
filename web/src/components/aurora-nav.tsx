@@ -9,7 +9,7 @@ const ITEMS = [
   { label: "Home", href: "/" },
   { label: "Menu", href: "/menu" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Journal", href: "/blog" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -31,8 +31,8 @@ export function AuroraNav() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "backdrop-blur-xl bg-[rgba(6,2,15,0.7)] border-b border-white/5"
+        (scrolled || pathname?.startsWith("/blog"))
+          ? "backdrop-blur-xl bg-[rgba(6,2,15,0.7)] border-b border-white/5 shadow-[0_5px_25px_rgba(0,0,0,0.12)]"
           : "bg-transparent"
       }`}
     >
@@ -76,7 +76,9 @@ export function AuroraNav() {
           </Link>
           <button
             type="button"
-            aria-label="Toggle menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((v) => !v)}
             className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-white/5"
           >
@@ -92,6 +94,8 @@ export function AuroraNav() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-navigation"
+        inert={!open}
         className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ${
           open ? "max-h-[480px]" : "max-h-0"
         } bg-[rgba(6,2,15,0.95)] backdrop-blur-xl border-b border-white/5`}

@@ -41,16 +41,28 @@ export async function POST(req: Request) {
         subject: c.subject,
         message: c.message,
       });
-      await resend.emails.send({
+      const result = await resend.emails.send({
         from: FROM,
         to: TO_INBOX,
         subject: tpl.subject,
         html: tpl.html,
         replyTo: c.email,
       });
+      if (result.error || !result.data?.id) {
+        throw new Error(result.error?.message ?? "Email provider did not accept the message");
+      }
     } catch (err) {
       console.error("[contact] resend send failed", err);
+      return NextResponse.json(
+        { error: "We could not send your message. Please try again or contact us by phone." },
+        { status: 502 },
+      );
     }
+  } else {
+    return NextResponse.json(
+      { error: "Contact email is temporarily unavailable. Please contact us by phone." },
+      { status: 503 },
+    );
   }
   return NextResponse.json({ ok: true });
 }
